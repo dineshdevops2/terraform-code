@@ -4,7 +4,7 @@ resource "aws_instance" "pub-vm" {
   ami                    = data.aws_ami.linux.id
   instance_type          = var.instance_type
   subnet_id              = aws_subnet.pub-sub.id
-  vpc_security_group_ids = aws_security_group.all_port.id
+  vpc_security_group_ids = [aws_security_group.all_port.id]
   key_name               = "vm-key"
 
   tags = {
@@ -17,7 +17,7 @@ resource "aws_instance" "pvt-vm" {
   ami                    = data.aws_ami.linux.id
   instance_type          = var.instance_type
   subnet_id              = aws_subnet.pvt-sub.id
-  vpc_security_group_ids = aws_security_group.all_port.id
+  vpc_security_group_ids = [aws_security_group.all_port.id]
   key_name               = "vm-key"
 
   tags = {
