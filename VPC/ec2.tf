@@ -21,7 +21,7 @@ resource "aws_instance" "pvt-vm" {
   key_name               = "vm-key"
 
   tags = {
-    Name = "pubvm"
+    Name = "pvtvm"
   }
 }
 
