@@ -8,24 +8,24 @@ resource "aws_security_group" "all_port" {
     from_port        = 443
     to_port          = 443
     protocol         = "tcp"
-    cidr_blocks      = [aws_vpc.test.cidr_block]
-    ipv6_cidr_blocks = [aws_vpc.test.ipv6_cidr_block]
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
   }
   ingress {
     description      = "RDP from VPC"
     from_port        = 3389
     to_port          = 3389
     protocol         = "tcp"
-    cidr_blocks      = [aws_vpc.test.cidr_block]
-    ipv6_cidr_blocks = [aws_vpc.test.ipv6_cidr_block]
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
   }
   ingress {
     description      = "SSH from VPC"
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
-    cidr_blocks      = [aws_vpc.test.cidr_block]
-    ipv6_cidr_blocks = [aws_vpc.test.ipv6_cidr_block]
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
   }  
 
   egress {
